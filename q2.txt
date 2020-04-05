@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    for(int q=1;q<=t;q++)
+    {
+        string s,s1="";
+        cin>>s;
+        int i=0,c=0;
+        for(int i=0;i<s.length();i++)
+        {
+            int r=int(s[i]) - 48;
+            if(r<c)
+            {
+                while(r!=c)
+                {
+                    s1+=')';
+                    c--;
+                }
+                c=r;
+            }
+            else if(r>c)
+            {
+                while(r!=c)
+                {
+                    s1+='(';
+                    c++;
+                }
+                c=r;
+            }
+            s1+=s[i];
+        }
+        while(c--)
+        s1+=')';
+        cout<<"Case #"<<q<<": "<<s1<<endl;
+    }
+}

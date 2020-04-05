@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    for(int q=1;q<=t;q++)
+    {
+        int n;
+        cin>>n;
+        int a[n][n],tr=0,r=0,c=0;
+        for(int i=0;i<n;i++)
+        {
+            set <int> s;
+            for(int j=0;j<n;j++)
+            {
+                cin>>a[i][j];
+                s.insert(a[i][j]);
+                if(i==j)
+                tr+=a[i][j];
+            }
+            if(s.size()!=n)
+            r++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            set <int> s;
+            for(int j=0;j<n;j++)
+            {
+                //cin>>a[i][j];
+                s.insert(a[j][i]);
+                //if(i==j)
+                //tr+=a[i][j];
+            }
+            if(s.size()!=n)
+            c++;
+        }
+        cout<<"Case #"<<q<<": "<<tr<<" "<<r<<" "<<c<<endl;
+    }
+}
